@@ -8,9 +8,9 @@ Definição da implementação do Analisador Léxico
 	
 	A implementação foi feita utilizando o Borland C++ versão 5.02, os arquivos referente à implementação são:
 
-    		1. principal.ide
-    		2. buffer.h
-    		3. lexico.h
+    	1. principal.ide
+    	2. buffer.h
+    	3. lexico.h
 		4. token.h
 		5. principal.cpp
 
