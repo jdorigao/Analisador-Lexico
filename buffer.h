@@ -1,76 +1,75 @@
 /*==============================================================================
-|           UNIGRAN - CENTRO UNIVERSIT¡RIO DA GRANDE DOURADOS                  |
-|               		 3∫ ANO CiÍncia da ComputaÁ„o                             |
+|           UNIGRAN - CENTRO UNIVERSIT√ÅRIO DA GRANDE DOURADOS                  |
+|               	 3¬∞ ANO Ci√™ncia da Computa√ß√£o                              |
 |                                                                              |
 |                                                                              |
 |                 		   :.Alunos.:                                          |
 |                          ----------                                          |
-|            	JULIANO BARBIEIRO DORIG√O - RGM: 122.213                        |
-|	  	 			DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
-|	 				PATRÕCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
+|              JULIANO BARBIEIRO DORIG√ÉO - RGM: 122.213                        |
+|	  	 	   DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
+|	 		   PATR√çCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
 |                                                                              |
-|               			  :.Professor.:                                        |
+|              			  :.Professor.:                                        |
 |                         -------------                                        |
-|               Fabio                                                          |
+|                    Fabio Vendramin Guimar√£es                                 |
 |                                                                              |
 |                                                                              |
-|               		Trabalho de Compiladores                                  |
+|             		 Trabalho de Compiladores                                  |
 |                    ------------------------                                  |
 |                                                                              |
-|          IMPLEMENTA«√O DE UM ANALISADOR L…XICO PARA TINY                     |
+|          IMPLEMENTA√á√ÉO DE UM ANALISADOR L√âXICO PARA TINY                     |
 |                                                                              |
-|          		- DefiniÁ„o da geraÁ„o de cÛdigo                                |
-|          		- ImplementaÁ„o de um analisador lÈxico                         |
+|          	   - Defini√ß√£o da gera√ß√£o de c√≥digo                                |
+|          	   - Implementa√ß√£o de um analisador l√©xico                         |
 |                                                                              |
 ==============================================================================*/
-
 
 
 /*------------------------------------------------------------------------------
                                 "buffer.h"
                                 ----------
-			- IntroduÁ„o.:
+			- Introdu√ß√£o.:
          --------------
            No arquivo "buffer.h" contem os  procedimentos de controle
-	      e  armazenamento, tambem as  variaveis que ser„o utilizadas.
-         Para que o Analizador LÈxico possa varrer todo o  arquivo  e
+	      e  armazenamento, tambem as  variaveis que ser√£o utilizadas.
+         Para que o Analizador L√©xico possa varrer todo o  arquivo  e
          retornar os tokens encontrados...
 
          - void arquivo.:
          ----------------
            Tem  a   finalidade  de  abrir  um  arquivo  para  leitura
-         e  armazenar  todo  o  conte˙do  do  arquivo  em  um vetor e
+         e  armazenar  todo  o  conte√∫do  do  arquivo  em  um vetor e
          finalizando com '\0'.
 
          - char ProximoCaracter.:
          ------------------------
            Tem  a  finalidade  de fazer a leitura do vetor e retornar o
-         prÛximo caracter armazenado no vetor.
+         pr√≥ximo caracter armazenado no vetor.
 
          - typedef struct token.:
          ------------------------
-           … criado um registro do tipo token, no qual ir· armazenar as
-         informaÁıes dos tokens encontrados no arquivo como:
-           			-	Classe  .: Para que classe o token pertence.
-                  -  Valor   .: Lexema encontrado.
-                  -	PosicaoL.: Em que linha foi encontrado.
+           √â criado um registro do tipo token, no qual ir√° armazenar as
+         informas√µes dos tokens encontrados no arquivo como:
+           	- Classe  .: Para que classe o token pertence.
+            - Valor   .: Lexema encontrado.
+            - PosicaoL.: Em que linha foi encontrado.
 
 
-         - Obs.:  O  vetor  est·  sendo  alocado  dinamicamente com o
-         			tamanho do arquivo, para que n„o haja desperdiÁo de
-              		espaÁo na memÛria.
+         - Obs.:  O  vetor  est√°  sendo  alocado  dinamicamente com o
+         			tamanho do arquivo, para que n√£o haja desperdi√ßo de
+              		espa√ßo na mem√≥ria.
 ------------------------------------------------------------------------------*/
 
 
 
-/*---------------------DeclaraÁ„o de bibliotecas------------------------------*/
-#include <iostream.h>
-#include <conio.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+/*---------------------Declara√ß√£o de bibliotecas------------------------------*/
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <ctype.h>
-#include <io.h>
+
+using namespace std;
 /*----------------------------------------------------------------------------*/
 
 
@@ -88,7 +87,7 @@
 /*-------------------------Declarando variaveis-------------------------------*/
    char c;//Recebe o caracter para ser analizado
 	int linha = 1;//Contador de linha
-	int InicioDeLexema = 0;//Ponteiro para localizar o inÌcio do Lexema
+	int InicioDeLexema = 0;//Ponteiro para localizar o in√≠cio do Lexema
 	int ApontadorAdiante = 0;//Ponteiro para localizar o fim do Lexema
 	char *vetor;//Ponteiro para o vetor que armazena o arquivo
 /*----------------------------------------------------------------------------*/
@@ -100,32 +99,24 @@ char arquivo(char* nome_arquivo)
 {
 
 
-    	FILE *arquivo;//Ponteiro do arquivo
+      FILE *arquivo;//Ponteiro do arquivo
       char letra;//Recebe caracteres lido do arquivo
       int bloco = 0;//Contador de coluna
-      int aux=0;//Auxilia na inserÁ„o de dados no vetor
+      int aux=0;//Auxilia na inser√ß√£o de dados no vetor
 
 
       //Abre o arquivo somente para leitura
       /*-------------------------------------------
-      Se o arquivo n„o for encontrado ou n„o puder
+      Se o arquivo n√£o for encontrado ou n√£o puder
       se aberto retornara um mensagem de erro
       --------------------------------------------*/
-      if((arquivo = fopen(nome_arquivo,"r")) == NULL)
-		{
-          clrscr();
-          textcolor(LIGHTRED +BLINK);
-      	 gotoxy(25,10);
-          cprintf(":.Erro na Abertura do Arquivo.:");
-          textcolor(YELLOW);
-          gotoxy(10,12);
-          cprintf("Verifique se o endereco do arquivo foi degitado corretamente");
-          getch();
-          exit(1);
+      if((arquivo = fopen(nome_arquivo,"r")) == NULL){
+          cout << ":.Erro na Abertura do Arquivo.:" << endl;
+          cout << "Verifique se o endereco do arquivo foi degitado corretamente" << endl;
       }
 
       
-      //LÍ caracter por caracter do arquivo
+      //LÔøΩ caracter por caracter do arquivo
       while((letra = getc(arquivo)) != EOF)
       {
          bloco++;//Conta quantos caracter contem no arquivo...
@@ -142,16 +133,16 @@ char arquivo(char* nome_arquivo)
       		vetor[l] = NULL;
 
 
-      //Retorna o ponteiro ao inÌcio do arquivo
+      //Retorna o ponteiro ao in√≠cio do arquivo
       rewind(arquivo);
 
       
-      //LÍ caracter por caracter do arquivo
+      //L√™ caracter por caracter do arquivo
       while((letra = getc(arquivo)) != EOF)
       {
       	//Insere caracter por caracter no vetor
          vetor[aux] = letra;
-         aux++;//PrÛxima posiÁ„o do vetor
+         aux++;//Pr√≥xima posi√ß√£o do vetor
       }
 
       //Insere '\0' no final do vetor para
@@ -168,7 +159,7 @@ char arquivo(char* nome_arquivo)
 /*---------------------Inicio void ProximoCaracter----------------------------*/
 char ProximoCaracter ( )
 {
-     c = vetor[ApontadorAdiante++];//Incremento da posiÁ„o do vetor
+     c = vetor[ApontadorAdiante++];//Incremento da posi√ß√£o do vetor
 
      if (c == '\n')
     	linha++;

@@ -1,26 +1,26 @@
 /*==============================================================================
 |           UNIGRAN - CENTRO UNIVERSITÁRIO DA GRANDE DOURADOS                  |
-|               		 3º ANO Ciência da Computação                             |
+|               	 3° ANO Ciência da Computação                              |
 |                                                                              |
 |                                                                              |
 |                 		   :.Alunos.:                                          |
 |                          ----------                                          |
-|            	JULIANO BARBIEIRO DORIGÃO - RGM: 122.213                        |
-|	  	 			DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
-|	 				PATRÍCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
+|              JULIANO BARBIEIRO DORIGÃO - RGM: 122.213                        |
+|	  	 	   DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
+|	 		   PATRÍCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
 |                                                                              |
-|               			  :.Professor.:                                        |
+|              			  :.Professor.:                                        |
 |                         -------------                                        |
-|               Fabio                                                          |
+|                    Fabio Vendramin Guimarães                                 |
 |                                                                              |
 |                                                                              |
-|               		Trabalho de Compiladores                                  |
+|             		 Trabalho de Compiladores                                  |
 |                    ------------------------                                  |
 |                                                                              |
 |          IMPLEMENTAÇÃO DE UM ANALISADOR LÉXICO PARA TINY                     |
 |                                                                              |
-|          		- Definição da geração de código                                |
-|          		- Implementação de um analisador léxico                         |
+|          	   - Definição da geração de código                                |
+|          	   - Implementação de um analisador léxico                         |
 |                                                                              |
 ==============================================================================*/
 
@@ -51,7 +51,7 @@
 
          =================Criação dos Automatos===================
          |                                                       |
-			|	  São criados  autômatos finitos  deterministicos    |
+		 |	  São criados  autômatos finitos  deterministicos    |
          |    para cada  padrão  de  token  da linguagem TYNI    |
          |                                                       |
          =========================================================
@@ -136,13 +136,13 @@
 
 
 /*---------------------Declaração de bibliotecas------------------------------*/
-#include <iostream.h>
-#include <conio.h>
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <io.h>
 #include <ctype.h>
+
+using namespace std;
 /*----------------------------------------------------------------------------*/
 
 

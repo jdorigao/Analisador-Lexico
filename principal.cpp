@@ -1,26 +1,26 @@
 /*==============================================================================
-|           UNIGRAN - CENTRO UNIVERSIT¡RIO DA GRANDE DOURADOS                  |
-|               		 3∫ ANO CiÍncia da ComputaÁ„o                             |
+|           UNIGRAN - CENTRO UNIVERSIT√ÅRIO DA GRANDE DOURADOS                  |
+|               	 3¬∞ ANO Ci√™ncia da Computa√ß√£o                              |
 |                                                                              |
 |                                                                              |
 |                 		   :.Alunos.:                                          |
 |                          ----------                                          |
-|            	JULIANO BARBIEIRO DORIG√O - RGM: 122.213                        |
-|	  	 			DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
-|	 				PATRÕCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
+|              JULIANO BARBIEIRO DORIG√ÉO - RGM: 122.213                        |
+|	  	 	   DALILA CRISTINA CIVIDINI  - RGM: 122.281                        |
+|	 		   PATR√çCIA RIBEIRO DE SOUZA - RGM: 122.308                        |
 |                                                                              |
-|               			  :.Professor.:                                        |
+|              			  :.Professor.:                                        |
 |                         -------------                                        |
-|               Fabio                                                          |
+|                    Fabio Vendramin Guimar√£es                                 |
 |                                                                              |
 |                                                                              |
-|               		Trabalho de Compiladores                                  |
+|             		 Trabalho de Compiladores                                  |
 |                    ------------------------                                  |
 |                                                                              |
-|          IMPLEMENTA«√O DE UM ANALISADOR L…XICO PARA TINY                     |
+|          IMPLEMENTA√á√ÉO DE UM ANALISADOR L√âXICO PARA TINY                     |
 |                                                                              |
-|          		- DefiniÁ„o da geraÁ„o de cÛdigo                                |
-|          		- ImplementaÁ„o de um analisador lÈxico                         |
+|          	   - Defini√ß√£o da gera√ß√£o de c√≥digo                                |
+|          	   - Implementa√ß√£o de um analisador l√©xico                         |
 |                                                                              |
 ==============================================================================*/
 
@@ -30,54 +30,54 @@
                                 "principal.cpp"
                                 ---------------
 
-            - IntroduÁ„o.:
+            - Introdu√ß√£o.:
             --------------
-            	No arquivo "principal.h" contem o corpo  principal, est„o
+            	No arquivo "principal.h" contem o corpo  principal, est√£o
             sendo  chamados  os  procedimentos arquivo("Nome_Arquivo") e
-            RetornaToken,necess·rio para a execuÁ„o do Analisador LÈxico.
+            RetornaToken,necess√°rio para a execu√ß√£o do Analisador L√©xico.
 
 
 				- arquivo("token.t").:
             ----------------------
               Chama o procedimento que  abre o arquivo e armazena todo o
             seu conteudo em um vetor.
-              Para identificar o arquivo, basta apenas por o  endereÁo e
+              Para identificar o arquivo, basta apenas por o  endere√ßo e
             do o nome do arquivo  entre   aspa  dupla dentro do parentes
-            apÛs a palavra arquivo.
+            ap√≥s a palavra arquivo.
 
 
             - RetornaToken.:
             ----------------
-              Chama o procedimento que retorna o prÛximo token e imprime
+              Chama o procedimento que retorna o pr√≥ximo token e imprime
             na tela para que possa verificar quais os tokens encontrados.
 
 
               Obs.: Observei que quando declaramos as bibliotecas do c++
-                    antes  dos arquivo .h, eles erdam as declaraÁıes das
-                    bibliotecas. Ser· bem parecido com token.h necessita
-                    de lexico.h e esse por sua vez de buffer.h  est„o na
-                    mesma  situaÁ„o,  se  mudada a ordem  haver· erro de
-                    declaraÁ„o de variaveis.
+                    antes  dos arquivo .h, eles erdam as declara√ß√µes das
+                    bibliotecas. Ser√° bem parecido com token.h necessita
+                    de lexico.h e esse por sua vez de buffer.h  est√£o na
+                    mesma  situa√ß√£o,  se  mudada a ordem  haver√° erro de
+                    declara√ß√£o de variaveis.
 ------------------------------------------------------------------------------*/
 
 
 
-//DeclaraÁ„o de bibliotecas
-#include <iostream.h>
-#include <conio.h>
+//Declara√ß√£o de bibliotecas
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <io.h>
 #include "buffer.h"
 #include "lexico.h"
 #include "token.h"
 
+using namespace std;
 
-//Chamada do Analisador LÈxico
+
+//Chamada do Analisador L√©xico
 void main ()
 {
-   //Basta apenas digitar o  endereÁo  e  o nome do
+   //Basta apenas digitar o  endere√ßo  e  o nome do
    //arquivo entre aspa dupla dentro do parenteses.
 	arquivo("token.t");
 
