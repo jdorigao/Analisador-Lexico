@@ -47,7 +47,7 @@ using namespace std;
 
 
 //Chamada do Analisador Léxico
-void main ()
+int main ()
 {
    //Basta apenas digitar o  endereço  e  o nome do
    //arquivo entre aspa dupla dentro do parenteses.
@@ -55,5 +55,7 @@ void main ()
 
    //Retorna os tokens
    RetornaToken ();
+
+   return 0;
 
 }
